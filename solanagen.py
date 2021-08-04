@@ -49,5 +49,9 @@ bip44_chg_ctx = bip44_acc_ctx.Change(Bip44Changes.CHAIN_EXT)
 bip44_addr_ctx = bip44_chg_ctx.AddressIndex( index )
 #print("%d. Address: %s %s" % (account_id, bip44_addr_ctx.PublicKey().ToAddress(), bip44_addr_ctx.PrivateKey().ToExtended()) )
 
-print("{\"address\": \"%s\", \"private_key\": \"%s\", \"private_bytes_key\": \"%s\", \"private_hex_key\": \"%s\"}" % (bip44_addr_ctx.PublicKey().ToAddress(),bip44_addr_ctx.PrivateKey().ToExtended(), bip44_addr_ctx.PrivateKey().Raw().ToBytes(), bip44_addr_ctx.PrivateKey().Raw().ToHex()) )
+priv_key_bytes = bip44_addr_ctx.PrivateKey().Raw().ToBytes()
+pub_key_bytes = bip44_addr_ctx.PublicKey().RawCompressed().ToBytes()[1:]
+key_pair = priv_key_bytes + pub_key_bytes
+
+print("{\"address\": \"%s\", \"private_key\": \"%s\"}" % (bip44_addr_ctx.PublicKey().ToAddress(), key_pair.hex() ) ) 
 
