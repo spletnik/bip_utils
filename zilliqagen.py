@@ -51,7 +51,6 @@ bip44_addr_ctx = bip44_chg_ctx.AddressIndex( index )
 
 priv_key_bytes = bip44_addr_ctx.PrivateKey().Raw().ToBytes()
 pub_key_bytes = bip44_addr_ctx.PublicKey().RawCompressed().ToBytes()[1:]
-key_pair = priv_key_bytes + pub_key_bytes
 
-print("{\"address\": \"%s\", \"private_key\": \"%s\"}" % (bip44_addr_ctx.PublicKey().ToAddress(), key_pair.hex() ) ) 
+print("{\"address\": \"%s\", \"private_key\": \"%s\"}" % (bip44_addr_ctx.PublicKey().ToAddress(), bip44_addr_ctx.PrivateKey().Raw() ) ) 
 
