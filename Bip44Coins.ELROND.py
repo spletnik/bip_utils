@@ -19,6 +19,7 @@ if num_args < 3 :
 
 account_id = int(sys.argv[1])
 index =  int(sys.argv[2])
+base64_message =  sys.argv[3]
 
 # print('Account ID: ', account_id)
 # print('Account Index: ', index)
@@ -29,8 +30,11 @@ index =  int(sys.argv[2])
 
 
 #mnemonic = VAULT.get_solana_seed( KEY )
+base64_bytes = base64_message.encode('ascii')
+message_bytes = base64.b64decode(base64_bytes)
+message = message_bytes.decode('ascii')
 
-mnemonic = "gallery hospital reflect tray strike pyramid scrap two proud cute trend sunny bulk almost surface trap license drastic fiber tumble rare purity dentist dice"
+mnemonic = message
 # Generate seed from mnemonic
 seed_bytes = Bip39SeedGenerator(mnemonic).Generate()
 
