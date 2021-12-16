@@ -2,6 +2,7 @@
 
 import sys
 import binascii
+import base64
 
 from bip_utils import (
     Bip39WordsNum, Bip39MnemonicGenerator, Bip39SeedGenerator, Bip44Changes, Bip44Coins, Bip44
