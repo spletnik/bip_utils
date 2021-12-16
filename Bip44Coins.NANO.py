@@ -2,6 +2,7 @@
 
 import sys
 import binascii
+import base64
 
 from bip_utils import (
     Bip39WordsNum, Bip39MnemonicGenerator, Bip39SeedGenerator, Bip44Changes, Bip44Coins, Bip44
@@ -13,7 +14,7 @@ args = str(sys.argv)
 # print('Number of arguments:', num_args, 'arguments.' )
 # print('Argument List:', args )
 
-if num_args < 3 :
+if num_args < 4 :
     #print('Parameters are user_id, index')
     exit()
 
